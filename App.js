@@ -1,6 +1,8 @@
 import React from 'react'
-import { Platform, Text, View } from 'react-native'
+import { Platform, View } from 'react-native'
 import { Constants } from 'expo'
+
+import Main from './src/screens'
 
 const App = () => (
   <View
@@ -10,7 +12,7 @@ const App = () => (
       marginTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
     }}
   >
-    <Text>Dem fuck start</Text>
+    <Main />
   </View>
 )
 
