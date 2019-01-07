@@ -1,12 +1,38 @@
 import React from 'react'
 import { Text, View, TouchableOpacity, ScrollView } from 'react-native'
+import DialogInput from 'react-native-dialog-input'
 import { Svg } from 'expo'
 import styles from './styles'
 
 export default class Home extends React.Component {
-  state = {}
+  state = {
+    isDialogVisible: false,
+    active: 'today',
+    tasks: {
+      today: [],
+      thisWeek: [],
+      thisMonth: []
+    }
+  }
+
+  // componentDidMount = () => {
+  //   AsyncStorage.getItem('tasks', (error, tasks) => {
+  //     if (!error && !tasks) {
+  //       this.setState({ tasks: JSON.parse(tasks) })
+  //     }
+  //   })
+  // }
+
+  // componentDidUpdate = () => {
+  //   const { tasks } = this.state
+  //   AsyncStorage.setItem('tasks', JSON.stringify(tasks))
+  // }
 
   render() {
+    const { isDialogVisible, active, tasks } = this.state
+    const activeWord =
+      active === 'today' ? 'Today' : active === 'thisWeek' ? 'This week' : 'This Month' // eslint-disable-line no-nested-ternary
+
     return (
       <View style={styles.container}>
         <View style={styles.headerNav}>
@@ -16,35 +42,46 @@ export default class Home extends React.Component {
           </View>
           <View style={styles.tasks}>
             <View style={styles.round}>
-              <Text style={styles.number}>4</Text>
+              <Text style={styles.number}>{tasks[active].length}</Text>
             </View>
-            <Text style={styles.white}>Tasks for Today</Text>
+            <Text style={styles.white}>
+              Tasks for
+              {activeWord}
+            </Text>
           </View>
         </View>
         {/* navbar */}
         <View style={styles.Navbar}>
-          <TouchableOpacity style={[styles.btn, styles.active]}>
-            <Text style={styles.white}>Today</Text>
+          <TouchableOpacity
+            style={[styles.btn, active === 'today' ? styles.active : null]}
+            onPress={() => this.setState({ active: 'today' })}
+          >
+            <Text style={active === 'today' ? styles.white : styles.dark}>Today</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.btn}>
-            <Text style={styles.dark}>This Week</Text>
+          <TouchableOpacity
+            style={[styles.btn, active === 'thisWeek' ? styles.active : null]}
+            onPress={() => this.setState({ active: 'thisWeek' })}
+          >
+            <Text style={active === 'thisWeek' ? styles.white : styles.dark}>This Week</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.btn}>
-            <Text style={styles.dark}>This Month</Text>
+          <TouchableOpacity
+            style={[styles.btn, active === 'thisMonth' ? styles.active : null]}
+            onPress={() => this.setState({ active: 'thisMonth' })}
+          >
+            <Text style={active === 'thisMonth' ? styles.white : styles.dark}>This Month</Text>
           </TouchableOpacity>
         </View>
         <ScrollView style={styles.todos} showsVerticalScrollIndicator={false}>
-          <Text style={styles.tood}>Meet with Google Apis, with kato and kim....</Text>
-          <Text style={styles.tood}>Meet with Google Apis</Text>
-          <Text style={styles.tood}>Meet with Google Apis</Text>
-          <Text style={styles.tood}>Meet with Google Apis</Text>
-          <Text style={styles.tood}>Meet with Google Apis</Text>
-          <Text style={styles.tood}>Meet with Google Apis</Text>
-          <Text style={styles.tood}>Meet with Google Apis, with kato and kim....</Text>
-          <Text style={styles.tood}>Meet with Google Apis, with kato and kim....</Text>
-          <Text style={styles.tood}>Meet with Google Apis, with kato and kim....</Text>
+          {tasks[active].map((task, i) => (
+            <Text style={styles.tood} key={i}>
+              {task}
+            </Text>
+          ))}
         </ScrollView>
-        <TouchableOpacity style={styles.fab}>
+        <TouchableOpacity
+          style={styles.fab}
+          onPress={() => this.setState({ isDialogVisible: true })}
+        >
           <Svg
             width="34"
             height="27"
@@ -63,6 +100,21 @@ export default class Home extends React.Component {
             />
           </Svg>
         </TouchableOpacity>
+        <DialogInput
+          isDialogVisible={isDialogVisible}
+          title="Add Task"
+          message={`Add task for ${activeWord}`}
+          hintInput="you would like to"
+          submitInput={inputText => {
+            const myTasks = { ...tasks }
+            myTasks[active].unshift(inputText)
+            this.setState({ tasks: myTasks })
+            this.setState({ isDialogVisible: false })
+          }}
+          closeDialog={() => {
+            this.setState({ isDialogVisible: false })
+          }}
+        />
       </View>
     )
   }

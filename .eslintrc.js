@@ -11,6 +11,7 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'react/prop-types': 'off',
     'comma-dangle': 'off',
+    'react/no-array-index-key': 'off',
     semi: [2, 'never']
   },
   globals: {
