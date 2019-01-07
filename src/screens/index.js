@@ -31,8 +31,8 @@ class Main extends React.Component {
               screenInterpolator: CardStackStyleInterpolator.forHorizontal
             })}
           >
-            <Scene key="landing" component={Landing} />
-            <Scene key="home" component={Home} initial />
+            <Scene key="landing" component={Landing} initial />
+            <Scene key="home" component={Home} />
           </Stack>
         </Router>
       )

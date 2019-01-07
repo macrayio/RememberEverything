@@ -40,6 +40,9 @@ export default class Home extends React.Component {
           <Text style={styles.tood}>Meet with Google Apis</Text>
           <Text style={styles.tood}>Meet with Google Apis</Text>
           <Text style={styles.tood}>Meet with Google Apis</Text>
+          <Text style={styles.tood}>Meet with Google Apis, with kato and kim....</Text>
+          <Text style={styles.tood}>Meet with Google Apis, with kato and kim....</Text>
+          <Text style={styles.tood}>Meet with Google Apis, with kato and kim....</Text>
         </ScrollView>
         <TouchableOpacity style={styles.fab}>
           <Svg

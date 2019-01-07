@@ -11,36 +11,41 @@ const styles = StyleSheet.create({
   },
   appName: {
     marginTop: '30%',
-    marginLeft: '2%'
+    padding: 15
   },
   nameBig: {
-    fontSize: 55,
-    color: 'white'
+    fontSize: 40,
+    color: 'white',
+    fontFamily: 'Montserrat-Regular'
   },
   nameSmall: {
-    fontSize: 45,
+    fontSize: 30,
     marginBottom: '-2%',
-    color: 'white'
+    color: 'white',
+    fontFamily: 'Montserrat-Regular'
   },
   button: {
     marginTop: '40%',
-    width: '60%',
-    height: '7%',
+    height: '12%',
+    paddingLeft: 25,
+    paddingRight: 25,
     backgroundColor: '#2A314C',
     alignItems: 'center',
-    marginLeft: '20%',
+    justifyContent: 'center',
     borderRadius: 6
   },
   buttonText: {
     color: 'white',
-    fontSize: 23,
-    marginTop: '3.5%'
+    fontSize: 23
   },
   madeByText: {
-    marginTop: '38%',
-    marginLeft: '35%',
+    marginTop: '35%',
     color: '#5B5D61',
     fontSize: 19
+  },
+  appBelowContainer: {
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 

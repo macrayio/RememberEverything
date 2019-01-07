@@ -9,19 +9,18 @@ const Landing = () => (
     <View style={styles.appNameContainer}>
       <View style={styles.appName}>
         <Text style={styles.nameSmall}>REMEMBER</Text>
-        <Text style={styles.nameBig}>
-          <Text style={{ fontWeight: 'bold' }}>EVERY</Text>
-          THING
-        </Text>
+        <Text style={styles.nameBig}>EVERYTHING</Text>
       </View>
     </View>
-    <TouchableOpacity style={styles.button} onPress={googleSignin}>
-      <Text style={styles.buttonText}>Sign in with Google</Text>
-    </TouchableOpacity>
-    <Text style={styles.madeByText}>
-      Made by
-      <Text style={{ fontWeight: 'bold' }}> Macray.io </Text>
-    </Text>
+    <View style={styles.appBelowContainer}>
+      <TouchableOpacity style={styles.button} onPress={googleSignin}>
+        <Text style={styles.buttonText}>Sign in with Google</Text>
+      </TouchableOpacity>
+      <Text style={styles.madeByText}>
+        Made by
+        <Text style={{ fontWeight: 'bold' }}> Macray.io </Text>
+      </Text>
+    </View>
   </View>
 )
 
