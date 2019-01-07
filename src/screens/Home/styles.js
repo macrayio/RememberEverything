@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 25 + '%',
+    height: `${25}%`,
     backgroundColor: '#2A314C',
     paddingLeft: 15,
     paddingRight: 15
@@ -20,18 +20,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 10 + '%',
+    height: `${10}%`,
     paddingLeft: 15,
     paddingRight: 15,
     marginTop: 5
   },
   todos: {
-    height: 70 + '%',
+    height: `${70}%`,
     paddingBottom: 10,
     paddingTop: 10,
     paddingLeft: 15,
     paddingRight: 15,
-   
+
   },
   hello: {
     fontSize: 28,
@@ -82,12 +82,12 @@ const styles = StyleSheet.create({
   white: {
     color: '#fff',
     fontFamily: 'Lato-Regular'
-   },
-   active: {
-     backgroundColor: '#FFAB66',
-     fontFamily: 'Lato-Regular'
-   },
-   fab: {
+  },
+  active: {
+    backgroundColor: '#FFAB66',
+    fontFamily: 'Lato-Regular'
+  },
+  fab: {
     backgroundColor: '#B25E7C',
     width: 50,
     height: 50,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 20,
     right: 40
-   }
+  }
 })
 
 export default styles
