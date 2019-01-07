@@ -30,8 +30,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingTop: 10,
     paddingLeft: 15,
-    paddingRight: 15,
-
+    paddingRight: 15
   },
   hello: {
     fontSize: 28,
@@ -48,13 +47,13 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   tasks: {
-    alignItems: 'center',
+    alignItems: 'center'
   },
   btn: {
     padding: 10,
     paddingLeft: 15,
     paddingRight: 15,
-    borderRadius: 5,
+    borderRadius: 5
   },
   tood: {
     paddingTop: 28,
@@ -68,7 +67,6 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     fontSize: 18,
     fontFamily: 'Lato-Regular'
-
   },
   dark: {
     color: '#5B5D61',

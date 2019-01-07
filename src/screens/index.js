@@ -5,28 +5,32 @@ import { Font } from 'expo'
 import Landing from './Landing'
 import Home from './Home'
 
+const lato = require('../../assets/fonts/Lato-Regular.ttf')
+const monts = require('../../assets/fonts/Montserrat-Regular.ttf')
+
 class Main extends React.Component {
   state = { fontload: false }
 
   async componentDidMount() {
     await Font.loadAsync({
-      'Lato-Regular': require('../../assets/fonts/Lato-Regular.ttf'),
-      'Montserrat-Regular': require('../../assets/fonts/Montserrat-Regular.ttf'),
+      'Lato-Regular': lato,
+      'Montserrat-Regular': monts
     })
     this.setState({ fontload: true })
   }
 
   render() {
-    if (this.state.fontload) {
+    const { fontload } = this.state
+    if (fontload) {
       return (
         <Router>
           <Stack
-      key="root"
-      hideNavBar
-      transitionConfig={() => ({
-        screenInterpolator: CardStackStyleInterpolator.forHorizontal
-      })}
-    >
+            key="root"
+            hideNavBar
+            transitionConfig={() => ({
+              screenInterpolator: CardStackStyleInterpolator.forHorizontal
+            })}
+          >
             <Scene key="landing" component={Landing} />
             <Scene key="home" component={Home} initial />
           </Stack>
