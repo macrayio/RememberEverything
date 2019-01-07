@@ -1,5 +1,6 @@
 import React from 'react'
 import { Router, Stack, Scene } from 'react-native-router-flux'
+import CardStackStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator'
 import { Font } from 'expo'
 import Landing from './Landing'
 import Home from './Home'
@@ -19,7 +20,13 @@ class Main extends React.Component {
     if (this.state.fontload) {
       return (
         <Router>
-          <Stack key="root" hideNavBar>
+          <Stack
+      key="root"
+      hideNavBar
+      transitionConfig={() => ({
+        screenInterpolator: CardStackStyleInterpolator.forHorizontal
+      })}
+    >
             <Scene key="landing" component={Landing} />
             <Scene key="home" component={Home} initial />
           </Stack>
