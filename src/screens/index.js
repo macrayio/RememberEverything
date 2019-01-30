@@ -2,7 +2,6 @@ import React from 'react'
 import { Router, Stack, Scene } from 'react-native-router-flux'
 import CardStackStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator'
 import { Font } from 'expo'
-import Landing from './Landing'
 import Home from './Home'
 
 const lato = require('../../assets/fonts/Lato-Regular.ttf')
@@ -31,8 +30,7 @@ class Main extends React.Component {
               screenInterpolator: CardStackStyleInterpolator.forHorizontal
             })}
           >
-            <Scene key="landing" component={Landing} initial />
-            <Scene key="home" component={Home} />
+            <Scene key="home" component={Home} initial />
           </Stack>
         </Router>
       )
